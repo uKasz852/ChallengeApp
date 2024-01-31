@@ -52,8 +52,8 @@
         
         public void AddGrade(decimal Grade)
         {
-            string Grade = Grade.ToString();
-            this.AddGrade(Grade);
+            var valueInDecimal = (float)Grade;
+            this.AddGrade(valueInDecimal);
         }
         
         public Statistics GetStatistics()

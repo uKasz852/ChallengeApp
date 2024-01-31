@@ -3,23 +3,23 @@
     public class Employee
     {
 
-        private List<float> Grades = new List<float>();
+        private List<float> grades = new List<float>();
 
-        public Employee(string Name, string Surname)
+        public Employee(string name, string surname)
         {
-            this.Name = Name;
-            this.Surname = Surname;
+            this.Name = name;
+            this.Surname = surname;
         }
 
-        public string Name { get; private set; }
+        public string name { get; private set; }
 
-        public string Surname { get; private set; }
+        public string surname { get; private set; }
 
-        public void AddGrade(float Grade)
+        public void AddGrade(float grade)
         {
-            if (Grade >= 0 && Grade <= 100)
+            if (grade >= 0 && grade <= 100)
             {
-                this.Grades.Add(Grade);
+                this.Grades.Add(grade);
             }
             else
             {
@@ -27,9 +27,9 @@
             }
         }
         
-        public void AddGrade(string Grade)
+        public void AddGrade(string grade)
         {
-            if (float.TryParse(Grade, out float result))
+            if (float.TryParse(grade, out float result))
             {
                 this.AddGrade(result);
             }
@@ -38,21 +38,21 @@
                 Console.WriteLine("String is not float");
             }
         }
-        public void AddGrade(double Grade)
+        public void AddGrade(double grade)
         {
-            var valueInDouble = (float)Grade;
+            var valueInDouble = (float)grade;
             this.AddGrade(valueInDouble);
         }
         
-        public void AddGrade(long Grade)
+        public void AddGrade(long grade)
         {
-            var valueInLong = (float)Grade;
+            var valueInLong = (float)grade;
             this.AddGrade(valueInLong);
         }
         
-        public void AddGrade(decimal Grade)
+        public void AddGrade(decimal grade)
         {
-            var valueInDecimal = (float)Grade;
+            var valueInDecimal = (float)grade;
             this.AddGrade(valueInDecimal);
         }
         
@@ -63,14 +63,14 @@
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
 
-            foreach (var Grade in this.Grades)
+            foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, Grade);
-                statistics.Min = Math.Min(statistics.Min, Grade);
-                statistics.Average += Grade;
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
             }
 
-            statistics.Average /= this.Grades.Count;
+            statistics.Average /= this.grades.Count;
             return statistics;
         }
     }
